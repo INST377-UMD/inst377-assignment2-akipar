@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>Assignment 2 Homepage</title>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+        <script src= "assignment2.js" defer></script>
+        <link rel="stylesheet" href="A2.css">
+    </head>
+
+    <body onload="reddit()">
+        <!-- Header -->
+        <header id="bar">
+            <h1>INST377 - Activities</h1>
+         </header>
+         <!-- Navigation -->
+          <nav id="main-nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="stocks.html">Stocks</a></li>
+                <li><a href="dogs.html">Dogs</a></li>
+            </ul>
+          </nav>
+
+         <!-- Main Content -->
+          <div class="main-container">
+            <h1>Let's chart some stocks!</h1>
+            <div class="content-area">
+                <form onsubmit="stockLookup(event)">
+                    <input type="text" id="stock" name="stock" maxlength="5" required>
+                    <br>
+                    <select name="days" id="days">
+                        <option value="30">30 Days</option>
+                        <option value="60">60 Days</option>
+                        <option value="90">90 Days</option>
+                    </select>
+                    <br>
+                    <button type="submit" id="lookup-button">Lookup Stock!</button>
+                </form>
+                <div>
+                    <canvas id="myChart" width="400" height="200"></canvas>
+                </div>
+                <!-- Reddit -->
+                <div id="reddit-stocks-table">
+                    <table id="reddit-stocks" border="1">
+                        <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Comment Count</th>
+                            <th>Sentiment</th>
+                        </tr>
+                        </thead>
+                        <tbody id="reddit-table"></tbody>
+                    </table>
+                </div>
+        <br>
+        <!-- Audio recognition -->
+            <div class="audio">
+                <h2>In this web page there are options to Navigate using Audio!</h2>
+                <div class="explanation">
+                <p>Ensure your mic is enabled for this feature</p>
+                <ul>
+                    <li>Navigate to a different page</li>
+                    <ul>
+                        <li>Say "Navigation to [page]"</li>
+                    </ul>
+                    <li>Change the page color</li>
+                    <ul>
+                        <li>Say "Change color to [color]"</li>
+                    </ul>
+                    <li>Say hello back to you</li>
+                    <ul>
+                        <li>Simply say "Hello!"</li>
+                    </ul>
+                    <li>Search stock info</li>
+                    <ul>
+                        <li>Say "Look up [stock]"</li>
+                    </ul>
+                </ul>
+            </div>
+                <button onclick = "micOn()">Turn On Listening</button>
+                <button onclick = "micOff()">Turn Off Listening</button>
+            </div>
+        </div>
+        </div>
+
+    </body>
+</html>
