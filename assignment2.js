@@ -139,18 +139,22 @@ async function getDogpic() {
   
   carousel.innerHTML = "";
   
-  data = await getapi(dogpicAPI);
-  data.message.forEach(imageurl => {
+  const data = await getapi(dogpicAPI);
+
+  const imageElements = data.message.map((imageurl) => {
     const img = document.createElement('img');
     img.src = imageurl;
-    img.alt = 'dog image';
-    carousel.appendChild(img);
+    img.alt = 'dog picture';
+    return img;
   });
+  imageElements.forEach(img => carousel.appendChild(img));
 
-  simpleslider.getSlider({
+  setTimeout(() => {
+    simpleslider.getSlider({
     container: document.getElementById('carousel'),
     transitionTime:1,
     delay:3.5
+  });
   });
 
 }
@@ -181,8 +185,8 @@ function showBreedInfo(breed) {
   const breedMin = document.getElementById("minLife");
   const breedMax = document.getElementById("maxLife");
 
-  breedName.textContent = breed.attributes.name;
-  breedDesc.textContent = breed.attributes.description;
+  breedName.textContent = `Name:${breed.attributes.name}`;
+  breedDesc.textContent = `Description:${breed.attributes.description}`;
   breedMin.textContent = `Min Life: ${breed.attributes.min_life_expectancy}`;
   breedMax.textContent = `Max Life: ${breed.attributes.max_life_expectancy}`;
 
@@ -199,7 +203,4 @@ if (document.getElementById("reddit-stocks-table")) {
       const range = parseInt(document.getElementById("range").value);
       fetchStockData(stock, range);
   });
-}
-if (document.getElementById("carousel")) {
-  loadBreed();
 }
