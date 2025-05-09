@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Assignment 2 Homepage</title>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js" defer></script>
+        <script src= "assignment2.js" defer></script>
+        <link rel="stylesheet" href="A2.css">
+    </head>
+
+    <body onload = "getQuote()">
+        <!-- Header -->
+        <header id="bar">
+            <h1>INST377 - Activities</h1>
+         </header>
+         <!-- Navigation -->
+          <nav id="main-nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="stocks.html">Stocks</a></li>
+                <li><a href="dogs.html">Dogs</a></li>
+            </ul>
+          </nav>
+
+         <!-- Main Content -->
+          <div class="main-container">
+            <h1>There are some different activities we can try!</h1>
+            <div class="content-area">
+                <!-- Page buttons -->
+                <a href="stocks.html"><button class="button-53" role="button">Stocks</button></a>
+                <a href="dogs.html"><button class="button-53" role="button">Dogs</button></a>
+                <br>
+            <div class="content-box">
+            <h3>Quote of the Page</h3>
+            <p id="quote"></p>
+        </div>
+
+        <br>
+        <!-- Audio Recognition -->
+            <div class="audio">
+                <h2>In this web page there are options to Navigate using Audio!</h2>
+                <div class="explanation">
+                <p>Ensure your mic is enabled for this feature</p>
+                <ul>
+                    <li>Navigate to a different page</li>
+                    <ul>
+                        <li>Say "Navigation to [page]"</li>
+                    </ul>
+                    <li>Change the page color</li>
+                    <ul>
+                        <li>Say "Change color to [color]"</li>
+                    </ul>
+                    <li>Say hello back to you</li>
+                    <ul>
+                        <li>Simply say "Hello!"</li>
+                    </ul>
+                </ul>
+            </div>
+                <button onclick = "micOn()">Turn On Listening</button>
+                <button onclick = "micOff()">Turn Off Listening</button>
+            </div>
+        </div>
+        </div>
+
+    </body>
+</html>
